@@ -19,27 +19,27 @@ router.post('/', async (req, res) => {
 // GET all
 router.get('/', async (req, res) => {
   try {
-    // Add this temporary test data
+    console.log('GET /api/devto-resources endpoint hit');
+    
+    // Temporary test data
     const testData = [
       {
-        title: "Test Blog Post",
-        link: "https://example.com",
-        image: "https://example.com/image.jpg",
-        summary: "This is a test blog post",
+        _id: "1",
+        title: "Test Dev.to Article",
+        link: "https://dev.to/test",
+        image: "https://picsum.photos/200",
+        summary: "This is a test article",
         resourceBy: "Test Author",
-        _id: "test123"
+        createdAt: new Date()
       }
     ];
 
-    // For testing, return the test data
+    console.log('Sending test data:', testData);
     return res.json(testData);
 
-    // Comment out the database query for now
-    // const all = await DevtoResource.find().sort({ createdAt: -1 });
-    // return res.json(all);
   } catch (error) {
-    console.error('Error fetching Devto resources:', error.message);
-    return res.status(500).json({ error: 'Failed to fetch Devto resources' });
+    console.error('Error in /api/devto-resources:', error);
+    return res.status(500).json({ error: error.message });
   }
 });
 

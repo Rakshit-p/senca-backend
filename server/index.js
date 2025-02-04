@@ -12,17 +12,19 @@ app.use(express.json());
 
 // CORS configuration
 const corsOptions = {
-  origin: ['https://senca-backend.vercel.app', 'http://localhost:3000'],
+  origin: ['https://senca-backend.vercel.app', 'https://senca-backend-gpcn.vercel.app', 'http://localhost:3000'],
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
-  credentials: true
+  credentials: true,
+  optionsSuccessStatus: 200
 };
 
+// Apply CORS before routes
 app.use(cors(corsOptions));
 
-// Add this before your routes
+// Add logging middleware
 app.use((req, res, next) => {
-  console.log(`${req.method} ${req.path}`);
+  console.log(`${new Date().toISOString()} - ${req.method} ${req.url}`);
   next();
 });
 
