@@ -7,25 +7,15 @@ router.get('/', async (req, res) => {
   try {
     console.log('GET /api/tools1-resources endpoint hit');
 
-    // Add test data for verification
-    const testData = [
-      {
-        _id: "test1",
-        title: "Test AI Tool",
-        link: "https://example.com/tool",
-        image: "https://example.com/image.jpg",
-        summary: "This is a test AI tool",
-        resourceBy: "Test Provider",
-        createdAt: new Date()
-      }
-    ];
+    // Use the actual database query instead of test data
+    const all = await Tools1Resource.find().sort({ createdAt: -1 });
+    console.log('Found resources:', all.length);
+    
+    if (all.length === 0) {
+      console.log('No resources found in database');
+    }
 
-    // For testing, return the test data
-    return res.json(testData);
-
-    // Comment out the database query for now
-    // const all = await Tools1Resource.find().sort({ createdAt: -1 });
-    // return res.json(all);
+    return res.json(all);
 
   } catch (error) {
     console.error('Error in /api/tools1-resources:', error);
