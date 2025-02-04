@@ -12,7 +12,7 @@ app.use(express.json());
 
 // CORS configuration
 const corsOptions = {
-  origin: '*', // Temporarily allow all origins for testing
+  origin: ['https://senca-backend.vercel.app', 'http://localhost:3000'],
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true
