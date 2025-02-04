@@ -8,8 +8,13 @@ const connectDB = require('./db');
 const app = express();
 
 // Middleware
-app.use(cors());
 app.use(express.json());
+app.use(cors());
+
+// Test route
+app.get('/', (req, res) => {
+  res.json({ message: 'Server is running!' });
+});
 
 // Connect to DB
 connectDB();
@@ -46,6 +51,6 @@ app.use('/api/tools1-resources', tools1Routes);
 
 // Start server on PORT=5001
 const PORT = process.env.PORT || 5001;
-app.listen(PORT, () => {
+app.listen(PORT, '0.0.0.0', () => {
   console.log(`Server running on port ${PORT}`);
 }); 

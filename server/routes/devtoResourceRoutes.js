@@ -19,27 +19,11 @@ router.post('/', async (req, res) => {
 // GET all
 router.get('/', async (req, res) => {
   try {
-    console.log('GET /api/devto-resources endpoint hit');
-    
-    // Temporary test data
-    const testData = [
-      {
-        _id: "1",
-        title: "Test Dev.to Article",
-        link: "https://dev.to/test",
-        image: "https://picsum.photos/200",
-        summary: "This is a test article",
-        resourceBy: "Test Author",
-        createdAt: new Date()
-      }
-    ];
-
-    console.log('Sending test data:', testData);
-    return res.json(testData);
-
+    const all = await DevtoResource.find().sort({ createdAt: -1 });
+    return res.json(all);
   } catch (error) {
-    console.error('Error in /api/devto-resources:', error);
-    return res.status(500).json({ error: error.message });
+    console.error('Error fetching Devto resources:', error.message);
+    return res.status(500).json({ error: 'Failed to fetch Devto resources' });
   }
 });
 
