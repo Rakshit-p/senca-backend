@@ -20,8 +20,15 @@ const corsOptions = {
 
 app.use(cors(corsOptions));
 
-// Test route to verify server is running
+// Add this before your routes
+app.use((req, res, next) => {
+  console.log(`${req.method} ${req.path}`);
+  next();
+});
+
+// Test route
 app.get('/test', (req, res) => {
+  console.log('Test route hit');
   res.json({ message: 'Server is running!' });
 });
 
