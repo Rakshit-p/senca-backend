@@ -12,9 +12,9 @@ function TweetsPodcastsVideosPage() {
     async function fetchAll() {
       try {
         const [spotifyRes, tweetsRes, youtubeRes] = await Promise.all([
-          fetch(`${process.env.REACT_APP_API_URL}/api/spotify1-resources`),
-          fetch(`${process.env.REACT_APP_API_URL}/api/tweet-resources`),
-          fetch(`${process.env.REACT_APP_API_URL}/api/youtube-resources`)
+          fetch('/api/spotify1-resources'),
+          fetch('/api/tweet-resources'),
+          fetch('/api/youtube-resources')
         ]);
         const spotifyData = await spotifyRes.json();
         const tweetsData  = await tweetsRes.json();

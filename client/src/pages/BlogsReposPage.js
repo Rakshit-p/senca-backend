@@ -225,10 +225,10 @@ function BlogsReposPage() {
     async function fetchAll() {
       try {
         const [devtoRes, githubRes, hfRes, newsRes] = await Promise.all([
-          fetch(`${process.env.REACT_APP_API_URL}/api/devto-resources`),
-          fetch(`${process.env.REACT_APP_API_URL}/api/github-resources`),
-          fetch(`${process.env.REACT_APP_API_URL}/api/huggingface-resources`),
-          fetch(`${process.env.REACT_APP_API_URL}/api/newsapi-resources`)
+          fetch('/api/devto-resources'),
+          fetch('/api/github-resources'),
+          fetch('/api/huggingface-resources'),
+          fetch('/api/newsapi-resources')
         ]);
         const devtoData = await devtoRes.json();
         const githubData = await githubRes.json();
@@ -236,6 +236,7 @@ function BlogsReposPage() {
         const newsData = await newsRes.json();
 
         // Combine them (if they are arrays)
+        // If any is not an array or there's an error, handle gracefully
         const combined = []
           .concat(Array.isArray(devtoData) ? devtoData : [])
           .concat(Array.isArray(githubData) ? githubData : [])

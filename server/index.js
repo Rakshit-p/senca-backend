@@ -8,31 +8,8 @@ const connectDB = require('./db');
 const app = express();
 
 // Middleware
+app.use(cors());
 app.use(express.json());
-
-// CORS configuration
-const corsOptions = {
-  origin: ['https://senca-backend.vercel.app', 'https://senca-backend-gpcn.vercel.app', 'http://localhost:3000'],
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization'],
-  credentials: true,
-  optionsSuccessStatus: 200
-};
-
-// Apply CORS before routes
-app.use(cors(corsOptions));
-
-// Add logging middleware
-app.use((req, res, next) => {
-  console.log(`${new Date().toISOString()} - ${req.method} ${req.url}`);
-  next();
-});
-
-// Test route
-app.get('/test', (req, res) => {
-  console.log('Test route hit');
-  res.json({ message: 'Server is running!' });
-});
 
 // Connect to DB
 connectDB();
@@ -55,7 +32,7 @@ const scrapeRoutes         = require('./routes/scrapeResourceRoutes');
 const tweetsRoutes         = require('./routes/tweetsResourceRoutes');
 const tools1Routes         = require('./routes/tools1ResourceRoutes');
 
-// Then the rest of your routes
+// Use them
 app.use('/api/devto-resources', devtoRoutes);
 app.use('/api/github-resources', githubRoutes);
 app.use('/api/youtube-resources', youtubeRoutes);
@@ -71,4 +48,4 @@ app.use('/api/tools1-resources', tools1Routes);
 const PORT = process.env.PORT || 5001;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
-});
+}); 
