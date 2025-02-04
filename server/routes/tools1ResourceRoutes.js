@@ -7,18 +7,36 @@ router.get('/', async (req, res) => {
   try {
     console.log('GET /api/tools1-resources endpoint hit');
 
-    // Use the actual database query instead of test data
-    const all = await Tools1Resource.find().sort({ createdAt: -1 });
-    console.log('Found resources:', all.length);
+    // First, verify the model exists
+    console.log('Model name:', Tools1Resource.modelName);
     
-    if (all.length === 0) {
-      console.log('No resources found in database');
+    // Check if collection exists
+    const collections = await Tools1Resource.db.db.listCollections().toArray();
+    console.log('Available collections:', collections.map(c => c.name));
+
+    // Add timeout option to the query
+    const all = await Tools1Resource.find()
+      .sort({ createdAt: -1 })
+      .lean() // For better performance
+      .timeout(30000); // 30 second timeout
+    
+    console.log('Query completed, found items:', all.length);
+
+    // If no items found, return empty array instead of error
+    if (!all || all.length === 0) {
+      console.log('No resources found');
+      return res.json([]);
     }
 
     return res.json(all);
 
   } catch (error) {
-    console.error('Error in /api/tools1-resources:', error);
+    console.error('Error details:', {
+      name: error.name,
+      message: error.message,
+      stack: error.stack
+    });
+    
     return res.status(500).json({ 
       error: 'Failed to fetch AI tools resources',
       details: error.message 
@@ -50,9 +68,13 @@ router.post('/', async (req, res) => {
   }
 });
 
-// Add a test endpoint
+// Test route to verify the endpoint is working
 router.get('/test', (req, res) => {
-  res.json({ message: 'Tools1 route is working!' });
+  res.json({ 
+    message: 'Tools1 route is working!',
+    timestamp: new Date(),
+    modelName: Tools1Resource.modelName
+  });
 });
 
 module.exports = router;
