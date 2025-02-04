@@ -225,10 +225,10 @@ function BlogsReposPage() {
     async function fetchAll() {
       try {
         const [devtoRes, githubRes, hfRes, newsRes] = await Promise.all([
-          fetch('/api/devto-resources'),
-          fetch('/api/github-resources'),
-          fetch('/api/huggingface-resources'),
-          fetch('/api/newsapi-resources')
+          fetch('https://senca.onrender.com/api/devto-resources'),
+          fetch('https://senca.onrender.com/api/github-resources'),
+          fetch('https://senca.onrender.com/api/huggingface-resources'),
+          fetch('https://senca.onrender.com/api/newsapi-resources')
         ]);
         const devtoData = await devtoRes.json();
         const githubData = await githubRes.json();

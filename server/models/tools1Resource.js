@@ -9,25 +9,14 @@ const tools1ResourceSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  image: {
-    type: String,
-    required: true
-  },
   summary: {    // For the AI tool summary from LLM
     type: String,
     required: true
   },
-  resourceBy: {
-    type: String,
-    required: true
+  createdAt: {  // For timestamp
+    type: Date,
+    default: Date.now
   }
-}, {
-  timestamps: true
 });
 
-// Add index for better query performance
-tools1ResourceSchema.index({ createdAt: -1 });
-
-const Tools1Resource = mongoose.model('Tools1Resource', tools1ResourceSchema);
-
-module.exports = Tools1Resource;
+module.exports = mongoose.model('Tools1Resource', tools1ResourceSchema);

@@ -12,9 +12,9 @@ function TweetsPodcastsVideosPage() {
     async function fetchAll() {
       try {
         const [spotifyRes, tweetsRes, youtubeRes] = await Promise.all([
-          fetch('/api/spotify1-resources'),
-          fetch('/api/tweet-resources'),
-          fetch('/api/youtube-resources')
+          fetch('https://senca.onrender.com/api/spotify1-resources'),
+          fetch('https://senca.onrender.com/api/tweet-resources'),
+          fetch('https://senca.onrender.com/api/youtube-resources')
         ]);
         const spotifyData = await spotifyRes.json();
         const tweetsData  = await tweetsRes.json();
