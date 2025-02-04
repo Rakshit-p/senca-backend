@@ -11,7 +11,7 @@ function TutorialsPage() {
   useEffect(() => {
     async function fetchTutorials() {
       try {
-        const response = await fetch('/api/tools1-resources');
+        const response = await fetch(`${process.env.REACT_APP_API_URL}/api/tools1-resources`);
         const data = await response.json();
         if (Array.isArray(data)) {
           // Remove date-related fields from each tutorial

@@ -12,8 +12,8 @@ function ResearchPapersPage() {
     async function fetchAllPapers() {
       try {
         const [papersRes, arxivRes] = await Promise.all([
-          fetch('/api/papers-resources'),
-          fetch('/api/arxiv-resources')
+          fetch(`${process.env.REACT_APP_API_URL}/api/papers-resources`),
+          fetch(`${process.env.REACT_APP_API_URL}/api/arxiv-resources`)
         ]);
         const papersData = await papersRes.json();
         const arxivData  = await arxivRes.json();
