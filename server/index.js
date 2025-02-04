@@ -8,8 +8,22 @@ const connectDB = require('./db');
 const app = express();
 
 // Middleware
-app.use(cors());
 app.use(express.json());
+
+// CORS configuration
+const corsOptions = {
+  origin: '*', // Temporarily allow all origins for testing
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  credentials: true
+};
+
+app.use(cors(corsOptions));
+
+// Test route to verify server is running
+app.get('/test', (req, res) => {
+  res.json({ message: 'Server is running!' });
+});
 
 // Connect to DB
 connectDB();
@@ -32,7 +46,7 @@ const scrapeRoutes         = require('./routes/scrapeResourceRoutes');
 const tweetsRoutes         = require('./routes/tweetsResourceRoutes');
 const tools1Routes         = require('./routes/tools1ResourceRoutes');
 
-// Use them
+// Then the rest of your routes
 app.use('/api/devto-resources', devtoRoutes);
 app.use('/api/github-resources', githubRoutes);
 app.use('/api/youtube-resources', youtubeRoutes);
