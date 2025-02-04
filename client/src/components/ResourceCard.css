@@ -1,0 +1,59 @@
+/* ResourceCard.css */
+.resource-card {
+  /* Base styles are in the inline styles */
+}
+
+/* Laptop and smaller desktop screens */
+@media screen and (max-width: 1200px) {
+  .resource-card {
+    width: 95% !important;
+    padding: 30px !important;
+  }
+}
+
+/* Tablet screens */
+@media screen and (max-width: 768px) {
+  .resource-card {
+    padding: 25px !important;
+  }
+  
+  .resource-card > div:first-child {
+    width: 250px !important;
+    height: 180px !important;
+  }
+}
+
+/* Mobile screens */
+@media screen and (max-width: 580px) {
+  .resource-card {
+    flex-direction: column !important;
+    padding: 20px !important;
+  }
+  
+  .resource-card > div:first-child {
+    width: 100% !important;
+    height: 200px !important;
+    margin: 0 0 15px 0 !important;
+  }
+  
+  .resource-card h3 {
+    font-size: 18px !important;
+    margin-top: 10px !important;
+  }
+  
+  .resource-card p {
+    font-size: 14px !important;
+  }
+}
+
+/* Very small screens */
+@media screen and (max-width: 400px) {
+  .resource-card {
+    width: 98% !important;
+    padding: 15px !important;
+  }
+  
+  .resource-card > div:first-child {
+    height: 180px !important;
+  }
+} 

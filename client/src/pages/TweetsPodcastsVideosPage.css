@@ -1,0 +1,50 @@
+/* Import the navbar styles */
+@import url('./HomePage.css');
+
+.videos-page {
+    margin: 20px;
+  }
+  
+  .video-card {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    padding: 10px;
+  }
+  
+  .thumbnail-container {
+    width: 150px;
+    margin-right: 20px;
+  }
+  
+  .thumbnail-container img {
+    width: 100%;
+    height: auto;
+  }
+  
+  .info-container a {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #3b5998;
+    text-decoration: none;
+  }
+  
+  .info-container p {
+    margin: 5px 0 0;
+    color: #666;
+  }
+
+/* Additional navbar-specific styles */
+.navbar {
+  position: fixed;
+  width: 100%;
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(10px);
+}
+
+/* Ensure proper spacing for content below fixed navbar */
+.content-wrapper {
+  padding-top: 80px;
+}

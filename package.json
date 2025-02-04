@@ -1,0 +1,12 @@
+{
+  "name": "my-root",
+  "scripts": {
+    "start": "concurrently \"npm run start-server\" \"npm run start-client\" \"npm run run-scrapers\"",
+    "start-server": "cd server && npm install && npm start",
+    "start-client": "cd client && npm install && npm start",
+    "run-scrapers": "cd scrapers && python devto.py && python fetch_papers.py && python news_api.py"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}

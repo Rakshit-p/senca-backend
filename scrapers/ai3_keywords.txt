@@ -1,0 +1,187 @@
+artificial intelligence 
+machine learning
+deep learning
+reinforcement learning
+ai
+ml
+dl
+-adversarial
+3d-omp-transformer
+adversarial
+adversarial-playground
+adversariality
+adversarially
+adversarially-trained
+adversarialness
+adversarials
+ai-
+ai-aided
+ai-as-exploration
+ai-assisted
+ai-augmented
+ai-based
+ai-catcher
+ai-cd
+ai-driven
+ai-edited
+ai-enabled
+ai-enhanced
+ai-generated
+ai-giarism
+ai-in-the-loop
+ai-induced
+ai-native
+ai-powered
+ai-related
+ai-tweeters
+ai-xr
+auto-ml
+auto-pytorch
+autonomic
+autonomics
+autonomous
+autonomously
+autonomy
+barely-supervised
+bert
+box-supervised
+capsule-transformer
+chatgpt
+cnn
+computer-vision
+computervision
+creative-ai
+crisp-ml
+cross-supervised
+deeplearning
+edge-ai
+ego-vision
+embeddings
+federated
+fully-supervised
+gan
+gen-ai
+generative
+generative-ai
+generativeai
+gg-transformer
+gpt
+h-ai
+hi-transformer
+hit-ai
+huggingface
+human-ai
+human-autonomous
+human-autonomy
+language-vision
+lidar-vision
+lightgbm
+llm
+lstm
+ltm-transformer
+lw-transformer
+machinelearning
+meta-reinforcement
+ml-based
+ml-defined
+ml-pwd
+multi-vision
+naq-pytorch
+neural
+neural-brane
+neural-network
+neural-symbolic
+neuralxrd
+nlp
+non-adversarial
+non-ai
+non-autonomous
+non-federated
+non-generative
+non-neural
+non-supervised
+omni-supervised
+partially-supervised
+provision
+pytorch
+reinforcement
+reinforcement-learning
+rnn
+robot
+robotics
+satvision-toa
+self-adversarial
+self-semi-supervised
+self-supervised
+self-supervision
+self-supervisions
+semi-autonomous
+semi-supervised
+semi-supervision
+sentences-transformer
+supervised
+supervised-unsupervised
+supervision
+supervision-free
+supervisions
+swin-transformer
+tabtransformer
+tensorflow
+transformer
+transformer-based
+transformer-dr
+transformer-mgk
+transformer-vq
+transformer-xl
+transformers
+unifiedvisiongpt
+unsupervised
+unsupervisedly
+varco-vision
+vision-aided
+vision-and-language
+vision-based
+vision-brain
+vision-centric
+vision-language
+vision-lstm
+vision-only
+vision-oriented
+vision-sjtu
+vision-text
+visionclip
+visiongpt
+visiongpt-3d
+visionisp
+visionllama
+visually-supervised
+weakly-supervised
+xgboost
+xr-transformer
+
+
+
+
+
+
+"computer vision",
+"natural language processing",
+"transformers",
+"generative AI",
+"robotics",
+"autonomous systems",
+"data science",
+"federated learning",
+"adversarial",
+"supervised learning",
+"unsupervised learning",
+"semi-supervised learning",
+"self-supervised learning",
+"bayesian networks",
+"automl",
+"language models",
+"prompt engineering",
+"foundation models",
+"large language models",
+"transfer learning",
+ "reinforcement learning",

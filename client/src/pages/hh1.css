@@ -1,0 +1,458 @@
+/* 
+  Fonts:
+  1. Poppins for headings and "Senca"
+  2. Space Mono for navbar links
+  3. Inter for all other body text
+*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz@0,14..32;1,14..32&display=swap');
+
+:root {
+  --bg: #000;
+  --text: #ffffff;
+  --blue: #441752;
+  --pink: #ff6bcb;
+  --orange: #8174A0;
+  --fade-duration: 1s; /* For fade-up transitions */
+}
+
+/* Reset and Body */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background: var(--bg);
+  color: var(--text);
+  position: relative;
+  overflow-x: visible; /* keep visible to avoid cutting off any animations */
+
+  /* Default body font -> Inter */
+  font-family: 'Inter', sans-serif;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Headings (keep them on Poppins) */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Fade-Up */
+.fade-up {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity var(--fade-duration) ease-out,
+              transform var(--fade-duration) ease-out;
+}
+.animate-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Navbar */
+.navbar {
+  width: 100%;
+  padding: 6px 6px;
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+  /*background-color: rgb(22, 21, 21);*/
+  background-color: #000;
+  backdrop-filter: blur(5px);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+.logo {
+  font-size: 29px;
+  font-weight: bold;
+  color: var(--text);
+  margin-right: 75px;
+  /* Keep the Poppins font for "Senca" */
+  font-family: 'Poppins', sans-serif;
+}
+.nav-links {
+  display: flex;
+  gap: 0; /* We'll handle spacing with borders and padding */
+  align-items: center;
+}
+.nav-links a {
+  position: relative;
+  /* Space Mono for navbar links except "Senca" */
+  font-family: 'Space Mono', monospace;
+  font-size: 16px;
+  color: var(--text);
+  padding: 5px 15px; /* default horizontal space */
+  transition: transform 0.3s ease, text-shadow 0.3s ease;
+}
+
+/* Thin semitransparent divider between links */
+.nav-links a:not(:last-child) {
+  border-right: 0.5px solid rgba(255, 255, 255, 0.3);
+}
+
+.nav-links a:hover {
+  transform: scale(1.08);
+  text-shadow: 0 0 8px var(--pink);
+}
+
+/* Hero Section */
+.hero-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 104vh;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(120deg, #000, #111);
+}
+
+.blob-cont {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 1000px;
+  width: 1000px;
+  position: relative;
+}
+
+.blob {
+  border-radius: 50%;
+  filter: blur(100px);
+  position: absolute;
+}
+
+/* "Breathing" animations */
+@keyframes blobBreathingBlue {
+  0% { transform: scale(1); background-color: #4a90e2; }
+  25% { transform: scale(0.95); background-color: #5c74f2; }
+  50% { transform: scale(1.05); background-color: #4aa8f2; }
+  75% { transform: scale(0.95); background-color: #3a80e2; }
+  100% { transform: scale(1); background-color: #4a90e2; }
+}
+@keyframes blobBreathingPink {
+  0% { transform: scale(1); background-color: #ff6bcb; }
+  25% { transform: scale(0.95); background-color: #ff4bd2; }
+  50% { transform: scale(1.05); background-color: #ff85d2; }
+  75% { transform: scale(0.95); background-color: #ff2cbc; }
+  100% { transform: scale(1); background-color: #ff6bcb; }
+}
+@keyframes blobBreathingOrange {
+  0% { transform: scale(1); background-color: #ff9f43; }
+  25% { transform: scale(0.95); background-color: #ff8f53; }
+  50% { transform: scale(1.05); background-color: #ffb443; }
+  75% { transform: scale(0.95); background-color: #ffa43b; }
+  100% { transform: scale(1); background-color: #ff9f43; }
+}
+.blue {
+  height: 450px;
+  width: 450px;
+  animation: blobBreathingBlue 8s infinite ease-in-out;
+}
+.pink {
+  height: 400px;
+  width: 400px;
+  animation: blobBreathingPink 8s infinite ease-in-out;
+}
+.orange {
+  height: 350px;
+  width: 350px;
+  animation: blobBreathingOrange 8s infinite ease-in-out;
+}
+
+.hero-content {
+  position: absolute;
+  bottom: 60px;
+  right: 60px;
+  text-align: right;
+  color: var(--text);
+}
+.hero-content h1 {
+  font-size: 72px;
+  font-weight: 900;
+  margin: 0;
+  /* Already Poppins from heading override */
+}
+.hero-content p {
+  font-size: 18px;
+  line-height: 1.6;
+  max-width: 400px;
+  margin-top: 10px;
+}
+
+/* About Section */
+.about-section {
+  display: flex;
+  padding: 20px;
+  align-items: center;
+  gap: 40px;
+  background: #000;
+  margin-right: 50px;
+}
+.about-image {
+  width: 700px;
+  height: 700px;
+  background: url('pic1.png') no-repeat center center;
+  background-size: contain;
+  aspect-ratio: 1;
+  border-radius: 20px;
+}
+.about-content {
+  max-width: 900px;
+}
+.about-content h2 {
+  font-size: 70px;
+  color: #fff;
+  margin-bottom: 20px;
+}
+.about-content p {
+  font-size: 22px;
+  line-height: 1.6;
+  color: #ccc;
+}
+
+/* Scrolling Boxes Section */
+.scrolling-section {
+  display: flex;
+  padding: 60px;
+  align-items: center;
+  background-color: #000;
+  gap: 40px;
+}
+.scroll-description {
+  max-width: 850px;
+  padding: 20px;
+  margin-left: auto;
+}
+.scroll-description h2 {
+  font-size: 70px;
+  margin-bottom: 10px;
+}
+.scroll-description p {
+  font-size: 22px;
+  line-height: 1.6;
+  color: #ccc;
+}
+
+/* Continuous scroll container */
+.scroll-container {
+  position: relative;
+  height: 550px;
+  width: 100%;
+  overflow: hidden;
+  margin-right: auto;
+}
+.scroll-content {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  animation: continuousScroll 25s linear infinite;
+}
+@keyframes continuousScroll {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-50%); }
+}
+.scroll-content:hover {
+  animation-play-state: paused;
+}
+
+/* Scroll cards */
+.scroll-card {
+  background-color: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  padding: 30px;
+  border-radius: 25px;
+  margin: 0 auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  width: 96%;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+.scroll-card-image {
+  width: 300px;
+  height: 200px;
+  background: url("pic3.jpg") center center / cover no-repeat;
+  border-radius: 10px;
+  margin-right: 30px;
+}
+.scroll-card h3 {
+  font-size: 22px;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+.scroll-card p {
+  font-size: 16px;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* Explore Section */
+.explore-section {
+  padding: 8px;
+  padding-bottom: 20px;
+  text-align: center;
+}
+@keyframes gradient-animation {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+.explore-heading {
+  font-size: 70px;
+  margin: 30px 0;
+  background: #fff;
+  -webkit-background-clip: text;
+  color: transparent;
+  background-size: 400% 400%;
+  animation: gradient-animation 5s ease infinite;
+}
+.explore-boxes {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 30px;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  padding-top: 40px;
+}
+.explore-box,
+.explore-box1,
+.explore-box2,
+.explore-box3 {
+  flex: 0 0 calc(25% - 30px);
+  background: rgba(255, 255, 255, 0.05);
+  color: #fff;
+  border-radius: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+  overflow: hidden;
+  text-align: center;
+  padding: 30px;
+  box-sizing: border-box;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.explore-box:hover,
+.explore-box1:hover,
+.explore-box2:hover,
+.explore-box3:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.7);
+}
+.explore-box .explore-image {
+  background: url('7 - 3D Future Things.png') no-repeat center center;
+  width: 100%;
+  height: 300px;
+  background-size: cover;
+  border-radius: 20px;
+}
+.explore-box1 .explore-image {
+  background: url('17 - 3D Future Things.png') no-repeat center center;
+  width: 100%;
+  height: 300px;
+  background-size: cover;
+  border-radius: 20px;
+}
+.explore-box2 .explore-image {
+  background: url('25 - 3D Future Things.png') no-repeat center center;
+  width: 100%;
+  height: 300px;
+  background-size: cover;
+  border-radius: 20px;
+}
+.explore-box3 .explore-image {
+  background: url('27 - 3D Future Things.png') no-repeat center center;
+  width: 100%;
+  height: 300px;
+  background-size: cover;
+  border-radius: 20px;
+}
+.explore-content {
+  padding: 30px;
+}
+.explore-content h2 {
+  font-size: 26px;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+.explore-content p {
+  font-size: 16px;
+  color: #bbb;
+  margin-bottom: 20px;
+}
+
+/* Contact Section */
+.contact-section {
+  background: #000;
+  padding: 40px 20px;
+  text-align: center;
+}
+.contact-section h2 {
+  font-size: 70px;
+  margin-bottom: 10px;
+}
+.contact-section p {
+  font-size: 18px;
+  color: #ccc;
+  margin-bottom: 30px;
+}
+.contact-form {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.contact-form input,
+.contact-form textarea {
+  background: #111;
+  border: 1px solid #444;
+  border-radius: 5px;
+  padding: 15px;
+  color: #fff;
+  font-size: 16px;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: var(--pink);
+}
+.contact-form button {
+  background: none;
+  color: #fff;
+  border: 1px solid #fff;
+  padding: 12px 30px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  align-self: flex-start;
+  transition: all 0.3s ease;
+}
+.contact-form button:hover {
+  background: var(--pink);
+  border-color: var(--pink);
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 15px;
+  background-color: #111;
+  color: var(--text);
+  margin-top: 20px;
+}

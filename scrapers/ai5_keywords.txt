@@ -1,0 +1,30 @@
+"artificial intelligence",
+"machine learning",
+"deep learning",
+"AI"
+"ML"
+"DL"
+"llm"
+"openai"
+"anthropic"
+"computer vision",
+"natural language processing",
+"transformers",
+"generative AI",
+"robotics",
+"autonomous systems",
+"data science",
+"federated learning",
+"adversarial",
+"supervised learning",
+"unsupervised learning",
+"semi-supervised learning",
+"self-supervised learning",
+"bayesian networks",
+"automl",
+"language models",
+"prompt engineering",
+"foundation models",
+"large language models",
+"transfer learning",
+"reinforcement learning", 

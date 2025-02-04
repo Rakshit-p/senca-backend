@@ -1,0 +1,808 @@
+/*
+  1) Poppins for headings + "Senca"
+  2) Space Mono for navbar links
+  3) Inter for everything else
+  4) Three-tiered media queries:
+     - Mobile (max-width: 768px)
+     - Laptop (769px–1440px)
+     - Desktop (>=1441px)
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz@0,14..32;1,14..32&display=swap');
+
+:root {
+  --bg: #000;
+  --text: #fff;
+  --blue: #441752;
+  --pink: #ff6bcb;
+  --orange: #8174A0;
+  --fade-duration: 1s;
+
+  /* We'll define separate font sizes for default, then override in media queries */
+  --font-size-nav-links: 15px;   /* default link font size */
+  --font-size-logo: 29px;       /* default 'Senca' size */
+  --font-size-base: 16px;       /* default body text */
+  --font-size-md: 22px;
+  --font-size-lg: 28px;
+  --font-size-xl: 48px;
+  --font-size-xxl: 60px;
+
+  --transition-duration: 0.3s;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', sans-serif;
+  overflow-x: visible;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Headings => Poppins */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+}
+
+/* Fade-Up animation */
+.fade-up {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity var(--fade-duration) ease-out,
+    transform var(--fade-duration) ease-out;
+}
+.animate-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Navbar */
+.navbar {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 999;
+  background-color: rgba(0, 0, 0, 0.9);
+  backdrop-filter: blur(5px);
+  padding: 1rem;
+}
+
+.navbar-inner {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: bold;
+  white-space: nowrap;
+  margin-right: 0.5rem;
+}
+
+/* Hamburger (mobile only) */
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  outline: none;
+}
+.nav-toggle .burger-line {
+  display: block;
+  width: 25px;
+  height: 2px;
+  margin: 5px auto;
+  background-color: var(--text);
+  transition: all 0.3s ease-in-out;
+}
+
+/* Nav links */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  flex: 1;
+  overflow-x: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.nav-links::-webkit-scrollbar {
+  display: none;
+}
+
+.nav-links a {
+  font-family: 'Space Mono', monospace;
+  font-size: 13px;
+  padding: 0.5rem 1rem;
+  border-right: 1px solid rgba(255, 255, 255, 0.2);
+  transition: color var(--transition-duration) ease;
+  white-space: nowrap;
+  text-align: center;
+}
+
+/* Add specific styles for About and Contact links */
+.nav-links a:nth-last-child(2), /* About */
+.nav-links a:last-child {       /* Contact */
+  font-size: 13px;
+  padding: 0.5rem 1rem;
+  display: inline-block;
+}
+
+/* Add hover effect without scale */
+.nav-links a:hover {
+  color: var(--pink);
+}
+
+/* Hero Section */
+.hero-section {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(120deg, #000, #111);
+  margin-top: 3.5rem; /* ensure it's not hidden behind nav */
+}
+.blob-cont {
+  position: relative;
+  width: 100vw;
+  height: 100vw;
+  max-width: 1000px;
+  max-height: 1000px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  filter: blur(40px);
+  overflow: hidden;
+}
+.blob {
+  border-radius: 50%;
+  position: absolute;
+  mix-blend-mode: screen;
+  animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  animation-iteration-count: infinite;
+  animation-duration: 15s; /* Slightly slower for smoother transitions */
+}
+
+/* Enhanced animations with beautiful color transitions */
+@keyframes blobBreathingFirst {
+  0% {
+    transform: scale(1) translate(0, 0);
+    background: #FF61D8; /* Vibrant pink */
+  }
+  25% {
+    transform: scale(1.1) translate(-50px, 20px);
+    background: #7A5FFF; /* Deep purple */
+  }
+  50% {
+    transform: scale(0.9) translate(50px, -20px);
+    background: #4CC9F0; /* Electric blue */
+  }
+  75% {
+    transform: scale(1.05) translate(-30px, -30px);
+    background: #FF8E3C; /* Warm orange */
+  }
+  100% {
+    transform: scale(1) translate(0, 0);
+    background: #FF61D8; /* Back to vibrant pink */
+  }
+}
+
+@keyframes blobBreathingSecond {
+  0% {
+    transform: scale(1) translate(0, 0);
+    background: #4CC9F0; /* Electric blue */
+  }
+  25% {
+    transform: scale(0.9) translate(50px, -20px);
+    background: #9B4DFF; /* Bright purple */
+  }
+  50% {
+    transform: scale(1.1) translate(-50px, 20px);
+    background: #FF61D8; /* Vibrant pink */
+  }
+  75% {
+    transform: scale(0.95) translate(30px, 30px);
+    background: #40E0D0; /* Turquoise */
+  }
+  100% {
+    transform: scale(1) translate(0, 0);
+    background: #4CC9F0; /* Back to electric blue */
+  }
+}
+
+@keyframes blobBreathingThird {
+  0% {
+    transform: scale(1) translate(0, 0);
+    background: #7A5FFF; /* Deep purple */
+  }
+  25% {
+    transform: scale(1.1) translate(30px, 30px);
+    background: #FF3DBA; /* Hot pink */
+  }
+  50% {
+    transform: scale(0.9) translate(-30px, -30px);
+    background: #3CFFB9; /* Mint */
+  }
+  75% {
+    transform: scale(1.05) translate(20px, -20px);
+    background: #FF8E3C; /* Warm orange */
+  }
+  100% {
+    transform: scale(1) translate(0, 0);
+    background: #7A5FFF; /* Back to deep purple */
+  }
+}
+
+/* Blob sizes and individual animations */
+.blue {
+  width: 450px;
+  height: 450px;
+  animation: blobBreathingFirst 15s infinite ease-in-out;
+  opacity: 0.7;
+}
+
+.pink {
+  width: 400px;
+  height: 400px;
+  animation: blobBreathingSecond 15s infinite ease-in-out;
+  animation-delay: -5s;
+  opacity: 0.7;
+}
+
+.orange {
+  width: 350px;
+  height: 350px;
+  animation: blobBreathingThird 15s infinite ease-in-out;
+  animation-delay: -10s;
+  opacity: 0.7;
+}
+
+/* Subtle container animation */
+@keyframes containerPulse {
+  0% {
+    transform: scale(1) rotate(0deg);
+  }
+  50% {
+    transform: scale(1.02) rotate(1deg);
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+.blob-cont {
+  animation: containerPulse 20s infinite ease-in-out;
+}
+
+.hero-content {
+  position: absolute;
+  bottom: 5%;
+  right: 5%;
+  text-align: right;
+  color: var(--text);
+  max-width: 90%;
+}
+.hero-content h1 {
+  font-size: var(--font-size-xxl);
+  font-weight: 900;
+}
+.hero-content p {
+  font-size: var(--font-size-base);
+  line-height: 1.6;
+  max-width: 28rem;
+  margin-top: 0.5rem;
+}
+
+/* About Section */
+.about-section {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 3vw;
+  gap: 4vw;
+  background: #000;
+  align-items: center;
+  justify-content: center;
+}
+.about-image {
+  flex: 1 1 40%;
+  max-width: 700px;
+  aspect-ratio: 1 / 1;
+  background: url('pic1.png') center/contain no-repeat;
+  border-radius: 1vw;
+}
+.about-content {
+  flex: 1 1 40%;
+  max-width: 900px;
+}
+.about-content h2 {
+  font-size: var(--font-size-xxl);
+  margin-bottom: 1rem;
+  color: #fff;
+}
+.about-content p {
+  font-size: var(--font-size-md);
+  line-height: 1.6;
+  color: #ccc;
+}
+
+/* Scrolling Boxes Section */
+.scrolling-section {
+  display: flex;
+  padding: 3vw;
+  gap: 4vw;
+  align-items: center;
+  background-color: #000;
+}
+.scroll-description {
+  max-width: 850px;
+  margin-left: auto;
+  padding: 1vw;
+}
+.scroll-description h2 {
+  font-size: var(--font-size-xxl);
+  margin-bottom: 1rem;
+}
+.scroll-description p {
+  font-size: var(--font-size-md);
+  line-height: 1.6;
+  color: #ccc;
+}
+
+/* Scrolling container: use clamp so it doesn't cut off on laptop screens */
+.scroll-container {
+  position: relative;
+  width: 100%;
+  height: auto;
+  min-height: 500px;
+  max-height: 800px;
+  overflow: hidden;
+}
+.scroll-content {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 2rem 0;
+  animation: continuousScroll 30s linear infinite;
+  width: 100%;
+}
+@keyframes continuousScroll {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-50%);
+  }
+}
+.scroll-content:hover {
+  animation-play-state: paused;
+}
+
+/* Scroll cards */
+.scroll-card {
+  background-color: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  display: flex;
+  align-items: flex-start;
+  padding: 2rem;
+  border-radius: 1.5rem;
+  margin: 0 auto;
+  width: 90%;
+  max-width: 1200px;
+  min-height: 200px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.scroll-card-image {
+  flex: 0 0 300px;
+  height: 200px;
+  border-radius: 1rem;
+  margin-right: 2rem;
+  background-size: cover;
+  background-position: center;
+}
+
+.scroll-card > div:last-child {
+  flex: 1;
+  min-width: 0; /* Prevents text overflow */
+}
+
+.scroll-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  word-wrap: break-word;
+}
+
+.scroll-card p {
+  font-size: 1rem;
+  line-height: 1.6;
+  word-wrap: break-word;
+}
+
+/* Explore Section */
+.explore-section {
+  padding: 2vw;
+  padding-bottom: 3vw;
+  text-align: center;
+  background: #000;
+}
+@keyframes gradient-animation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+.explore-heading {
+  font-size: var(--font-size-xxl);
+  margin: 2rem 0;
+  background: #fff;
+  -webkit-background-clip: text;
+  color: transparent;
+  background-size: 400% 400%;
+  animation: gradient-animation 5s ease infinite;
+}
+.explore-boxes {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 2vw;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  padding-top: 2vw;
+}
+.explore-box,
+.explore-box1,
+.explore-box2,
+.explore-box3 {
+  flex: 0 0 calc(25% - 2vw);
+  background: rgba(255, 255, 255, 0.05);
+  color: #fff;
+  border-radius: 1.5vw;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+  overflow: hidden;
+  text-align: center;
+  padding: 2vw;
+  box-sizing: border-box;
+  transition: transform var(--transition-duration) ease,
+    box-shadow var(--transition-duration) ease;
+  min-width: 280px;
+}
+.explore-box:hover,
+.explore-box1:hover,
+.explore-box2:hover,
+.explore-box3:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.7);
+}
+.explore-box .explore-image,
+.explore-box1 .explore-image,
+.explore-box2 .explore-image,
+.explore-box3 .explore-image {
+  width: 100%;
+  aspect-ratio: 1/1;
+  background-size: cover;
+  background-position: center center;
+  border-radius: 1vw;
+}
+.explore-box .explore-image {
+  background-image: url('7 - 3D Future Things.png');
+}
+.explore-box1 .explore-image {
+  background-image: url('17 - 3D Future Things.png');
+}
+.explore-box2 .explore-image {
+  background-image: url('25 - 3D Future Things.png');
+}
+.explore-box3 .explore-image {
+  background-image: url('27 - 3D Future Things.png');
+}
+.explore-content {
+  padding: 2vw;
+}
+.explore-content h2 {
+  font-size: var(--font-size-md);
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+.explore-content p {
+  font-size: var(--font-size-base);
+  color: #bbb;
+  margin-bottom: 1rem;
+}
+
+/* Contact Section */
+.contact-section {
+  background: #000;
+  padding: 4vw 2vw;
+  text-align: center;
+}
+.contact-section h2 {
+  font-size: var(--font-size-xxl);
+  margin-bottom: 1rem;
+}
+.contact-section p {
+  font-size: var(--font-size-base);
+  color: #ccc;
+  margin-bottom: 2rem;
+}
+.contact-form {
+  max-width: 60rem; /* ~960px */
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.contact-form input,
+.contact-form textarea {
+  background: #111;
+  border: 1px solid #444;
+  border-radius: 5px;
+  padding: 1rem;
+  color: #fff;
+  font-size: var(--font-size-base);
+  outline: none;
+  transition: border-color var(--transition-duration) ease;
+  width: 100%;
+}
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: var(--pink);
+}
+.contact-form textarea {
+  min-height: 6rem;
+}
+.contact-form button {
+  background: none;
+  color: #fff;
+  border: 1px solid #fff;
+  padding: 0.8rem 2rem;
+  font-size: var(--font-size-base);
+  cursor: pointer;
+  border-radius: 5px;
+  align-self: flex-start;
+  transition: all var(--transition-duration) ease;
+}
+.contact-form button:hover {
+  background: var(--pink);
+  border-color: var(--pink);
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: #111;
+  color: var(--text);
+  margin-top: 2rem;
+  font-size: var(--font-size-base);
+}
+
+/* ---------------------- MEDIA QUERIES ---------------------- */
+
+/* MOBILE (max-width: 768px) */
+@media (max-width: 768px) {
+  .navbar-inner {
+    justify-content: space-between;
+  }
+  
+  .nav-toggle {
+    display: block;
+  }
+  
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.95);
+    flex-direction: column;
+    padding: 1rem;
+  }
+  
+  .nav-links.open {
+    display: flex;
+  }
+  
+  .nav-links a {
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 0.75rem 1rem;
+    text-align: left;
+  }
+
+  .logo {
+    margin-right: 0;
+    font-size: 22px; /* slightly smaller on phone */
+  }
+  .nav-links a {
+    font-size: 14px; /* smaller link size on phone */
+  }
+
+  .blob-cont {
+    filter: blur(30px);
+  }
+  .hero-section {
+    margin-top: 3rem;
+  }
+  .hero-content {
+    bottom: 2rem;
+    right: 2rem;
+  }
+  .about-section {
+    flex-direction: column;
+    margin-top: 1rem;
+  }
+  .scrolling-section {
+    flex-direction: column;
+  }
+  .explore-boxes {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  /* Scrolling container can be smaller on phones */
+  .scroll-container {
+    height: clamp(400px, 55vh, 600px);
+  }
+
+  .blue {
+    width: 300px;
+    height: 300px;
+  }
+  
+  .pink {
+    width: 250px;
+    height: 250px;
+  }
+  
+  .orange {
+    width: 200px;
+    height: 200px;
+  }
+}
+
+/* LAPTOP (769px - 1440px) */
+@media (min-width: 769px) and (max-width: 1440px) {
+  /* Increase nav link size slightly for laptops */
+  .nav-links a {
+    font-size: 16px;
+  }
+  .logo {
+    font-size: 26px;
+  }
+
+  /* Scrolling container specifically for 13" laptops */
+  .scroll-container {
+    height: 700px; /* Fixed height instead of clamp */
+  }
+  
+  /* Adjust animation duration to accommodate the taller container */
+  .scroll-content {
+    animation: continuousScroll 30s linear infinite; /* Increased from 25s */
+  }
+}
+
+/* DESKTOP (min-width: 1441px) */
+@media (min-width: 1441px) {
+  /* Even larger nav links on big monitors if you want */
+  .nav-links a {
+    font-size: 17px;
+  }
+  .logo {
+    font-size: 29px; /* or 32px if you want bigger */
+  }
+
+  /* Scrolling container can be bigger on large desktops */
+  .scroll-container {
+    height: clamp(550px, 60vh, 900px);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 1440px) {
+  .scroll-card {
+    width: 95%;
+    max-width: 1000px;
+  }
+  
+  .scroll-card-image {
+    flex: 0 0 250px;
+    height: 180px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .nav-links {
+    flex-wrap: wrap;
+  }
+  
+  .nav-links a {
+    padding: 0.5rem 1rem;
+    font-size: 13px;
+    flex: 1 1 auto;
+  }
+  
+  .scroll-card {
+    width: 90%;
+    padding: 1.5rem;
+  }
+  
+  .scroll-card-image {
+    flex: 0 0 200px;
+    height: 150px;
+  }
+}
+
+/* Adjust animation speed based on screen size */
+@media (max-width: 1024px) {
+  .scroll-content {
+    animation-duration: 25s;
+  }
+}
+
+@media (max-width: 768px) {
+  .scroll-content {
+    animation-duration: 20s;
+  }
+}
+
+/* Media query specifically for laptop screens */
+@media (min-width: 1024px) and (max-width: 1440px) {
+  .navbar {
+    padding: 0.75rem;
+  }
+  
+  .navbar-inner {
+    gap: 1rem;
+  }
+  
+  .nav-links a {
+    padding: 0.5rem 0.75rem;
+    font-size: 12px;
+  }
+  
+  /* Maintain visibility of About and Contact on laptop */
+  .nav-links a:nth-last-child(2),
+  .nav-links a:last-child {
+    display: inline-block;
+    font-size: 12px;
+    padding: 0.5rem 0.75rem;
+  }
+}
