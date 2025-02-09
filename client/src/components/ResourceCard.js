@@ -35,10 +35,45 @@ function ResourceCard({ resource }) {
     window.location.pathname === '/tutorials'
   );
 
-  // Remove all date-related logic for tools resources
-  const dateToDisplay = isToolsResource ? null : (publishedAt || createdAt || "No Date");
-  const formattedDate = dateToDisplay && dateToDisplay !== "No Date" ? 
-    new Date(dateToDisplay).toLocaleDateString('en-US', {
+  // Enhanced date helper function to handle more date formats
+  const getResourceDate = () => {
+    if (isToolsResource) return null;
+    
+    // Handle different date fields and formats
+    const possibleDateFields = [
+      resource.publishedAt,
+      resource.createdAt,
+      resource.date,
+      resource.created_at,
+      resource.published_at,
+      resource.timestamp,  // For tweets
+      resource.snippet?.publishedAt,  // For YouTube videos
+      resource.pubDate,    // For RSS feeds
+      resource.published_time
+    ];
+
+    // Find the first valid date
+    const date = possibleDateFields.find(d => d !== undefined && d !== null);
+    
+    if (!date) return null;
+    
+    // Convert string date to Date object
+    try {
+      // Handle Unix timestamps (e.g., from Twitter)
+      if (typeof date === 'number') {
+        return new Date(date * 1000);
+      }
+      return new Date(date);
+    } catch (e) {
+      console.error('Invalid date format:', date);
+      return null;
+    }
+  };
+
+  // Update date display logic to use the new helper function
+  const dateToDisplay = getResourceDate();
+  const formattedDate = dateToDisplay ? 
+    dateToDisplay.toLocaleDateString('en-US', {
       day: 'numeric',
       month: 'short',
       year: 'numeric'

@@ -335,10 +335,10 @@ function HomePage() {
 
           {/* Nav Links */}
           <div className={`nav-links ${mobileNavOpen ? 'open' : ''}`}>
-            <Link to="/blogs-repos">Trending AI Blogs & Projects</Link>
+            <Link to="/blogs-repos">Trending AI Blogs, Projects, and News</Link>
             <Link to="/research-papers">Trending AI Research Papers</Link>
             <Link to="/tweets-podcasts-videos">Trending AI Tweets, Podcasts & Videos</Link>
-            <Link to="/tutorials">Trending AI Tools & Tutorials</Link>
+            <Link to="/tutorials">Trending AI Tools</Link>
             <a href="#about-section">About</a>
             <a href="#contact-section">Contact</a>
           </div>

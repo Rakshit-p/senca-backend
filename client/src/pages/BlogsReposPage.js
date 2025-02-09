@@ -1,217 +1,4 @@
-// // src/pages/BlogsReposPage.js
-// import React from 'react';
-// import { Link } from 'react-router-dom';
-
-// function BlogsReposPage() {
-//   return (
-//     <>
-//       {/* Navbar */}
-//       <div className="navbar">
-//         <div className="logo">Senca</div>
-//         <div className="nav-links">
-//                     {/* Removed any "Home" link from navbar */}
-//             <Link to="/blogs-repos">Trending AI Blogs &amp; Projects</Link>
-//             <Link to="/research-papers">Trending AI Research Papers</Link>
-//             <Link to="/tweets-podcasts-videos">
-//                 Trending AI Tweets, Podcasts &amp; Videos
-//             </Link>
-//             <Link to="/tutorials">Trending AI Tools &amp; Tutorials</Link>
-//             <a href="about-image">About</a>
-//             <a href="#">Contact</a>
-//         </div>
-//       </div>
-
-//       {/* Heading */}
-//       <div
-//         style={{
-//           textAlign: 'center',
-//           marginTop: '80px',
-//           color: '#fff',
-//           fontFamily: 'Arial, sans-serif',
-//         }}
-//       >
-//         <h1 style={{ fontSize: '42px', marginBottom: '10px' }}>
-//           Top AI Blogs and Repos
-//         </h1>
-//         <hr
-//           style={{
-//             width: '90%',
-//             margin: '10px auto',
-//             border: '0.5px solid rgba(255, 255, 255, 0.5)',
-//           }}
-//         />
-//       </div>
-
-//       {/* Card 1 */}
-//       <div
-//         className="blogs-card"
-//         style={{
-//           backgroundColor: 'rgba(255, 255, 255, 0.08)',
-//           color: '#fff',
-//           display: 'flex',
-//           alignItems: 'center',
-//           padding: '50px',
-//           borderRadius: '15px',
-//           margin: '40px auto',
-//           boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)',
-//           width: '90%',
-//           fontFamily: 'Arial, sans-serif',
-//           border: '1px solid rgba(255, 255, 255, 0.2)',
-//           /* We'll add a little transition for the hover border effect: */
-//           transition: 'border-color 0.3s ease',
-//         }}
-//       >
-//         {/* Left side: Image */}
-//         <div
-//           style={{
-//             width: '300px',
-//             height: '200px',
-//             background:
-//               'url("/pic3.jpg") center center / cover no-repeat',
-//             borderRadius: '10px',
-//             marginRight: '20px',
-//           }}
-//         ></div>
-//         {/* Right side: Text content */}
-//         <div>
-//           <h3
-//             style={{
-//               fontSize: '24px',
-//               marginBottom: '10px',
-//               fontWeight: '600',
-//             }}
-//           >
-//             Create a website that reflects your personal brand
-//           </h3>
-//           <p
-//             style={{
-//               fontSize: '16px',
-//               lineHeight: '1.5',
-//               color: 'rgba(255, 255, 255, 0.8)',
-//             }}
-//           >
-//             Start your free trial with Squarespace and create a personal
-//             brand that stands out. Discover the tools you need to build and
-//             grow your online presence.
-//           </p>
-//         </div>
-//       </div>
-
-//       {/* Card 2 */}
-//       <div
-//         className="blogs-card"
-//         style={{
-//           backgroundColor: 'rgba(255, 255, 255, 0.08)',
-//           color: '#fff',
-//           display: 'flex',
-//           alignItems: 'center',
-//           padding: '40px',
-//           borderRadius: '15px',
-//           margin: '40px auto',
-//           boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)',
-//           width: '90%',
-//           fontFamily: 'Arial, sans-serif',
-//           border: '1px solid rgba(255, 255, 255, 0.2)',
-//           transition: 'border-color 0.3s ease',
-//         }}
-//       >
-//         {/* Left side: Image */}
-//         <div
-//           style={{
-//             width: '300px',
-//             height: '200px',
-//             background:
-//               'url("/pic3.jpg") center center / cover no-repeat',
-//             borderRadius: '10px',
-//             marginRight: '20px',
-//           }}
-//         ></div>
-//         {/* Right side: Text content */}
-//         <div>
-//           <h3
-//             style={{
-//               fontSize: '24px',
-//               marginBottom: '10px',
-//               fontWeight: '600',
-//             }}
-//           >
-//             Create a website that reflects your personal brand
-//           </h3>
-//           <p
-//             style={{
-//               fontSize: '16px',
-//               lineHeight: '1.5',
-//               color: 'rgba(255, 255, 255, 0.8)',
-//             }}
-//           >
-//             Start your free trial with Squarespace and create a personal
-//             brand that stands out. Discover the tools you need to build and
-//             grow your online presence.
-//           </p>
-//         </div>
-//       </div>
-
-//       {/* Card 3 */}
-//       <div
-//         className="blogs-card"
-//         style={{
-//           backgroundColor: 'rgba(255, 255, 255, 0.08)',
-//           color: '#fff',
-//           display: 'flex',
-//           alignItems: 'center',
-//           padding: '40px',
-//           borderRadius: '15px',
-//           margin: '40px auto',
-//           boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)',
-//           width: '90%',
-//           fontFamily: 'Arial, sans-serif',
-//           border: '1px solid rgba(255, 255, 255, 0.2)',
-//           transition: 'border-color 0.3s ease',
-//         }}
-//       >
-//         {/* Left side: Image */}
-//         <div
-//           style={{
-//             width: '300px',
-//             height: '200px',
-//             background:
-//               'url("/pic3.jpg") center center / cover no-repeat',
-//             borderRadius: '10px',
-//             marginRight: '20px',
-//           }}
-//         ></div>
-//         {/* Right side: Text content */}
-//         <div>
-//           <h3
-//             style={{
-//               fontSize: '24px',
-//               marginBottom: '10px',
-//               fontWeight: '600',
-//             }}
-//           >
-//             Create a website that reflects your personal brand
-//           </h3>
-//           <p
-//             style={{
-//               fontSize: '16px',
-//               lineHeight: '1.5',
-//               color: 'rgba(255, 255, 255, 0.8)',
-//             }}
-//           >
-//             Start your free trial with Squarespace and create a personal
-//             brand that stands out. Discover the tools you need to build and
-//             grow your online presence.
-//           </p>
-//         </div>
-//       </div>
-//     </>
-//   );
-// }
-
-// export default BlogsReposPage;
-
-
-//src/pages/BlogsReposPage.js
+// src/pages/BlogsReposPage.js
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import ResourceCard from '../components/ResourceCard';
@@ -219,6 +6,8 @@ import ResourceCard from '../components/ResourceCard';
 function BlogsReposPage() {
   const [blogReposData, setBlogReposData] = useState([]);
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
+  const [searchTerm, setSearchTerm] = useState('');
+  const [selectedCategory, setSelectedCategory] = useState('all');
 
   useEffect(() => {
     // We'll fetch all 4 endpoints in parallel, then combine
@@ -235,13 +24,20 @@ function BlogsReposPage() {
         const hfData = await hfRes.json();
         const newsData = await newsRes.json();
 
+        // Add console.log to check data sources
+        console.log('Sample items:', {
+          devto: devtoData[0],
+          github: githubData[0],
+          hf: hfData[0],
+          news: newsData[0]
+        });
+
         // Combine them (if they are arrays)
-        // If any is not an array or there's an error, handle gracefully
         const combined = []
-          .concat(Array.isArray(devtoData) ? devtoData : [])
-          .concat(Array.isArray(githubData) ? githubData : [])
-          .concat(Array.isArray(hfData) ? hfData : [])
-          .concat(Array.isArray(newsData) ? newsData : []);
+          .concat(Array.isArray(devtoData) ? devtoData.map(item => ({...item, dataSource: 'devto-resources'})) : [])
+          .concat(Array.isArray(githubData) ? githubData.map(item => ({...item, dataSource: 'github-resources'})) : [])
+          .concat(Array.isArray(hfData) ? hfData.map(item => ({...item, dataSource: 'huggingface-resources'})) : [])
+          .concat(Array.isArray(newsData) ? newsData.map(item => ({...item, dataSource: 'newsapi-resources'})) : []);
 
         setBlogReposData(combined);
       } catch (err) {
@@ -254,6 +50,83 @@ function BlogsReposPage() {
   const toggleMobileNav = () => {
     setMobileNavOpen(!mobileNavOpen);
   };
+
+  const CategoryButtons = () => (
+    <div style={{
+      display: 'flex',
+      justifyContent: 'center',
+      gap: '10px',
+      margin: '20px auto',
+      width: '90%',
+      maxWidth: '800px',
+      padding: '20px 0',
+      flexWrap: 'wrap',
+    }}>
+      {['all', 'blogs', 'projects', 'news'].map((category) => (
+        <button
+          key={category}
+          onClick={() => setSelectedCategory(category)}
+          style={{
+            padding: '8px 16px',
+            fontSize: 'clamp(12px, 3vw, 16px)',
+            backgroundColor: selectedCategory === category ? 'rgba(255, 255, 255, 0.15)' : 'transparent',
+            border: '2px solid rgba(255, 255, 255, 0.2)',
+            borderRadius: '8px',
+            color: '#fff',
+            cursor: 'pointer',
+            textTransform: 'capitalize',
+            transition: 'all 0.3s ease',
+            outline: 'none',
+            position: 'relative',
+            overflow: 'hidden',
+            fontWeight: selectedCategory === category ? '600' : '400',
+            letterSpacing: '0.5px',
+            boxShadow: selectedCategory === category ? '0 4px 12px rgba(0, 0, 0, 0.2)' : 'none',
+            minWidth: '70px',
+            margin: '5px',
+          }}
+          onMouseEnter={(e) => {
+            e.target.style.backgroundColor = 'rgba(255, 255, 255, 0.1)';
+            e.target.style.borderColor = 'rgba(255, 255, 255, 0.4)';
+            e.target.style.transform = 'translateY(-2px)';
+            e.target.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.2)';
+          }}
+          onMouseLeave={(e) => {
+            e.target.style.backgroundColor = selectedCategory === category ? 'rgba(255, 255, 255, 0.15)' : 'transparent';
+            e.target.style.borderColor = 'rgba(255, 255, 255, 0.2)';
+            e.target.style.transform = 'translateY(0)';
+            e.target.style.boxShadow = selectedCategory === category ? '0 4px 12px rgba(0, 0, 0, 0.2)' : 'none';
+          }}
+        >
+          {category}
+        </button>
+      ))}
+    </div>
+  );
+
+  const filteredData = blogReposData.filter(item => {
+    // First apply search filter
+    const matchesSearch = !searchTerm || 
+      item.title?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      item.description?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      item.author?.toLowerCase().includes(searchTerm.toLowerCase());
+
+    // Then apply category filter
+    if (!matchesSearch) return false;
+    
+    if (selectedCategory === 'all') return true;
+    
+    switch (selectedCategory) {
+      case 'blogs':
+        return item.dataSource === 'devto-resources';
+      case 'projects':
+        return item.dataSource === 'github-resources' || item.dataSource === 'huggingface-resources';
+      case 'news':
+        return item.dataSource === 'newsapi-resources';
+      default:
+        return true;
+    }
+  });
 
   return (
     <>
@@ -275,10 +148,10 @@ function BlogsReposPage() {
 
           {/* Modified nav-links to support mobile toggle */}
           <div className={`nav-links ${mobileNavOpen ? 'open' : ''}`}>
-            <Link to="/blogs-repos">Trending AI Blogs &amp; Projects</Link>
+            <Link to="/blogs-repos">Trending AI Blogs, Projects, and News</Link>
             <Link to="/research-papers">Trending AI Research Papers</Link>
             <Link to="/tweets-podcasts-videos">Trending AI Tweets, Podcasts &amp; Videos</Link>
-            <Link to="/tutorials">Trending AI Tools &amp; Tutorials</Link>
+            <Link to="/tutorials">Trending AI Tools</Link>
             <a href="/#about-section">About</a>
             <a href="/#contact-section">Contact</a>
           </div>
@@ -308,7 +181,7 @@ function BlogsReposPage() {
             textShadow: '0 0 20px rgba(255,255,255,0.2)',
           }}
         >
-          Top AI Blogs and Repos
+          Top AI Blogs, Projects, & News
         </h1>
         <hr
           style={{
@@ -322,8 +195,65 @@ function BlogsReposPage() {
         />
       </div>
 
-      {/* Render our combined data using <ResourceCard> */}
-      {blogReposData.map((item) => (
+      {/* Enhanced search section */}
+      <div
+        style={{
+          width: '80%',
+          maxWidth: '800px',
+          margin: '40px auto',
+          position: 'relative',
+        }}
+      >
+        <input
+          type="text"
+          placeholder="Search blogs and projects..."
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+          style={{
+            width: '100%',
+            padding: '18px 25px',
+            fontSize: '16px',
+            backgroundColor: 'rgba(255, 255, 255, 0.08)',
+            border: '2px solid rgba(255, 255, 255, 0.1)',
+            borderRadius: '15px',
+            color: '#fff',
+            outline: 'none',
+            transition: 'all 0.3s ease',
+            boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
+            backdropFilter: 'blur(10px)',
+            letterSpacing: '0.5px',
+          }}
+          onFocus={(e) => {
+            e.target.style.backgroundColor = 'rgba(255, 255, 255, 0.12)';
+            e.target.style.borderColor = 'rgba(255, 255, 255, 0.3)';
+            e.target.style.boxShadow = '0 4px 15px rgba(0, 0, 0, 0.2)';
+          }}
+          onBlur={(e) => {
+            e.target.style.backgroundColor = 'rgba(255, 255, 255, 0.08)';
+            e.target.style.borderColor = 'rgba(255, 255, 255, 0.1)';
+            e.target.style.boxShadow = '0 4px 6px rgba(0, 0, 0, 0.1)';
+          }}
+        />
+        <div 
+          style={{
+            position: 'absolute',
+            right: '20px',
+            top: '50%',
+            transform: 'translateY(-50%)',
+            color: 'rgba(255, 255, 255, 0.6)',
+            pointerEvents: 'none',
+            fontSize: '20px',
+          }}
+        >
+          🔍
+        </div>
+      </div>
+
+      {/* Add category buttons */}
+      <CategoryButtons />
+
+      {/* Render our filtered data using <ResourceCard> */}
+      {filteredData.map((item) => (
         <ResourceCard key={item._id} resource={item} />
       ))}
     </>
